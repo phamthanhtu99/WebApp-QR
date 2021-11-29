@@ -10,6 +10,7 @@ import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import javax.xml.ws.Response;
@@ -24,10 +25,14 @@ public class LoginController {
 
     @Autowired
     private JwtUtil jwtUtil;
-    @RequestMapping("/home")
-    public String home(){
-        return "hiji";
+
+
+
+    @GetMapping("/home")
+    public String home(Model model){
+        return "views/login";
     }
+
 
 
 
