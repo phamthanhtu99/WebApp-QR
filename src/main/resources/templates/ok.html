@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/login/style.css}"/>
+</head>
+<body>
+<div class="main">
+
+    <form action="" method="POST" class="form" id="form-1">
+        <h3 class="heading">Thành viên đăng ký</h3>
+        <p class="desc">Đăng Ký Để Có Những Trải Nghiệm Tốt ❤️</p>
+
+        <div class="spacer"></div>
+
+        <div class="form-group">
+            <label for="fullname" class="form-label">Tên đầy đủ</label>
+            <input id="fullname" name="fullname" type="text" rules='required' placeholder="VD: Nguyễn Văn A" class="form-control">
+            <span class="form-message"></span>
+        </div>
+
+        <div class="form-group">
+            <label for="phone" class="form-label">Số điện Thoại</label>
+            <input id="phone" name="email" type="text" rules='required|phone' placeholder="0366925478" class="form-control">
+            <span class="form-message"></span>
+        </div>
+
+        <div class="form-group">
+            <label for="password" class="form-label">Mật khẩu</label>
+            <input id="password" name="password" rules='required|min:6' type="password" placeholder="Nhập mật khẩu" class="form-control">
+            <span class="form-message"></span>
+        </div>
+        <button class="form-submit">Đăng ký</button>
+    </form>
+</div>
+<script th:src="@{/login/main.js}"></script>
+<script>
+    var reg= new validator('#form-1')
+    reg.onSubmit=function(data){
+        console.log(data);
+    }
+
+</script>
+</body>
+</html>

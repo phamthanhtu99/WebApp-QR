@@ -1,4 +1,4 @@
-package App.Entity;
+package com.example.Entity;
 
 public enum ERole {
     ROLE_USER,
