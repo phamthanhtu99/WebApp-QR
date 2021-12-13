@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org",
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet"type="text/css" th:href="@{web/style.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{web/base.css}">
+    <link rel="stylesheet" th:href="@{fontMS/css/all.css}">
+</head>
+<body>
+        <div class="app">
+            <div th:replace="web/common/header::header"></div>
+        </div>
+        <a>web</a>
+        <div sec:authorize="isAuthenticated()">
+            <div sec:authentication="name"/>
+        </div>
+
+
+
+</body>
+</html>

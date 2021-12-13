@@ -1,0 +1,81 @@
+
+    <!-- Nội Dung Modal -->
+    <div class="modal-content">
+        <h2 class="header">Thêm sản phẩm    <span class="close">&times;</span></h2>
+
+
+        <form id="form">
+
+            <div class="form-group">
+                <input id="name" name="name" type="text" rules='required' placeholder="Tên sản phẩm" class="form-control"/>
+                <div class="form-message"></div>
+            </div>
+
+            <div class="form-group">
+                <input id="name" name="price" type="text" rules='required'  placeholder="Giá tiền (VD: 172.5)" class="form-control price">
+                <div class="form-message"></div>
+            </div>
+            <div class="form-group">
+                <input id="name" name="image" type="text" rules='required'  placeholder="" class="form-control">
+                <div class="form-message"></div>
+            </div>
+            <div class="btn-file">
+                <div class="add-imge">
+                    <label for="arquivo"class="arquivo" >Thêm Ảnh</label>
+                    <input type="file" name="imge"    class="avata">
+                </div>
+                <div class="form-message"></div>
+            </div>
+            <div class="images">
+            </div>
+            <hr>
+
+            <div class="images_p">
+                <div class="img_t">
+                    <a for="arquivo"class="imgep" >Ảnh phụ</a>
+                    <input type="file" name="imges" multiple  class="imgs_p">
+                </div>
+                <div class="form-message"></div>
+            </div>
+            <div class="message">
+
+            </div>
+            <div class="btn-form">
+                <button class="btn ">ADD</button>
+            </div>
+
+
+        </form>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script th:src="@{common/form.js}"></script>
+    <script th:src="@{common/event.js}"></script>
+    <script>
+        var reg= new validator('#form')
+        reg.onSubmit=function(data){
+            console.log(data)
+            var{imge,imges,...rest}= data;
+            var form = new FormData();
+            var igs=[]
+            for (const file of imges) {
+                form.append("imgs", file);
+            }
+            form.append("prduct",JSON.stringify(rest))
+            form.append("img", imge[0]);
+            console.log(form)
+            var settings = {
+                "url": "/v1/save/product",
+                "method": "POST",
+                "timeout": 0,
+                "processData": false,
+                "mimeType": "multipart/form-data",
+                "contentType": false,
+                "data": form
+            };
+
+            $.ajax(settings).done(function (response) {
+                console.log(response);
+            });
+        }
+
+    </script>

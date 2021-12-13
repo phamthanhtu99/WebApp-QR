@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" , xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+    <div th:fragment="header">
+        <div class="headr">
+            <div class="headr-name">
+                YOUR CAFFE SHOP
+            </div>
+            <div class="header-nav">
+                <ul class="nav-list">
+                    <li class="list-item">
+                        <a href="" class="nav-item"> <i class="fas fa-store-alt"></i> Cửa Hàng</a>
+                    </li>
+                        <li class="list-item">
+                        <div sec:authorize="isAuthenticated()"  >
+                            <a  class="nav-item"> <i class="fas fa-user-alt"></i>   <span sec:authentication="name" /></a>
+                        </div>
+                        <div sec:authorize="!isAuthenticated()"  >
+                            <a  th:href="@{/login}" class="nav-item"> <i class="fas fa-user-alt"></i> Tài khoảng</a>
+                        </div>
+
+                    </li>
+                </ul>
+                <div class="seach">
+                    <i class="fas fa-search"></i>
+
+                    <input type="text">
+                </div>
+            </div>
+        </div>
+        <div class="menu">
+            <div class="menu-list">
+                <ul class="menu-list-product">
+                    <li class="menu-list__item">
+                        <a href="" class="menu-list__item__link"> <i class="fas fa-home"></i> TRANG CHỦ</a>
+
+                    </li>
+                    <li class="menu-list__item">
+                        <a href="" class="menu-list__item__link"> <i class="fas fa-th-list"></i> SẢN PHẨM</a>
+                        <ul class="produt_list">
+                            <li class="product-list__item"><a>Cà phê</a></li>
+                            <li class="product-list__item"><a>Cà phê</a></li>
+                            <li class="product-list__item"><a>Cà phê</a></li>
+                        </ul>
+                    </li>
+                    <li class="menu-list__item">
+                        <a href="" class="menu-list__item__link"><i class="fas fa-store"></i> CỮA HÀNG</a>
+
+                    </li>
+                    <li class="menu-list__item">
+                        <a href="" class="menu-list__item__link"> <i class="far fa-bell"></i> KHUYẾN MÃI</a>
+
+                    </li>
+                    <li class="menu-list__item">
+                        <a href="" class="menu-list__item__link"> <i class="fas fa-phone-volume"></i> LIÊN HỆ</a>
+
+                    </li>
+                </ul>
+
+            </div>
+            <div class="cart">
+                <a href="">
+                    <i class="fas fa-shopping-cart"></i>
+                </a>
+
+            </div>
+        </div>
+        <div class="select">
+            <div class="select-header">
+                <div class="header-product">
+                    <ul class="header-product__list">
+                        <li class="header-product__item">
+                            <a href="">Sản Phẩm bán chạy</a>
+                        </li>
+                        <li class="header-product__item">
+                            <a href="">Sản Phẩm Giảm Giá</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="select-header">
+                <div class="header-product">
+                    <ul class="header-product__list">
+                        <li class="header-product__item">
+                            <a href="">Chọn Bàn</a>
+                        </li>
+                        <li class="header-product__item">
+                            <a href="">Bàn Trống</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

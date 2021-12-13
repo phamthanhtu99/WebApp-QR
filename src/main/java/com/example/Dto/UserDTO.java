@@ -1,6 +1,5 @@
 package com.example.Dto;
 
-import javax.persistence.Column;
 import java.util.List;
 
 public class UserDTO {
@@ -8,20 +7,34 @@ public class UserDTO {
     private String Name;
     private String Phone;
     private String Address;
+    private  String Password;
     private List<RoleDTO> role;
 
-    public UserDTO(Long id, String name, String phone, String address, List<RoleDTO> role) {
+    public String getPassword() {
+        return Password;
+    }
+
+    public void setPassword(String password) {
+        Password = password;
+    }
+
+    public UserDTO() {
+    }
+
+    public UserDTO(Long id, String name, String phone, String address, String password, List<RoleDTO> role) {
         this.id = id;
         Name = name;
         Phone = phone;
         Address = address;
+        Password = password;
         this.role = role;
     }
 
-    public UserDTO(String name, String phone, String address, List<RoleDTO> role) {
+    public UserDTO(String name, String phone, String address, String password, List<RoleDTO> role) {
         Name = name;
         Phone = phone;
         Address = address;
+        Password = password;
         this.role = role;
     }
 

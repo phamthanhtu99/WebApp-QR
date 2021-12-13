@@ -1,6 +1,7 @@
-var $ = document.querySelector.bind(document)
-var $$ = document.querySelectorAll.bind(document)
+
 function validator(formselector) {
+    let $ = document.querySelector.bind(document)
+    let $$ = document.querySelectorAll.bind(document)
     var _this=this
     var formRules = {}
     var validatorRules = {
